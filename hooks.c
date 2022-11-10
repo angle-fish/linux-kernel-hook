@@ -8,7 +8,7 @@ asmlinkage int
 mkdir_hook(const char *path, int mode)
 {
     sys_mkdir_t sys_mkdir;
-    
+    printk(KERN_INFO"call mkdir now\n");
     sys_mkdir = (sys_mkdir_t)sys_hook_get_orig64(lkh_sys_hook, __NR_mkdir);
 
     return sys_mkdir(path, mode);
